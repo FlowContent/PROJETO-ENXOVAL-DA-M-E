@@ -1,37 +1,42 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1442284964099300');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1442284964099300&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Enxoval da Mãe | Grupo VIP de Promoções</title>
 <meta name="description" content="Bugs de preço, cupons e ofertas de enxoval para mamães que querem economizar. Entre no Grupo VIP do WhatsApp do Enxoval da Mãe.">
 <meta property="og:title" content="Enxoval da Mãe | Grupo VIP de Promoções">
 <meta property="og:description" content="Bugs de preço, cupons e ofertas para mamães que querem economizar.">
-<meta property="og:image" content="logo-enxoval.png">
-<link rel="icon" href="logo-enxoval.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:image" content="img/og-image.jpg">
+<meta name="theme-color" content="#E4E9EE">
+<link rel="icon" type="image/png" href="img/favicon.png">
+
+<!-- Recursos críticos: imagem principal e fontes locais (sem depender do Google Fonts) -->
+<link rel="preload" as="image" type="image/webp" href="img/hero-1254.webp"
+      imagesrcset="img/hero-480.webp 480w, img/hero-800.webp 800w, img/hero-1254.webp 1254w"
+      imagesizes="(max-width:780px) 100vw, 62vw" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="fonts/fredoka.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/montserrat.woff2" crossorigin>
+
+<!-- Meta Pixel Code (carregado após a página abrir, para não atrasar o carregamento) -->
+<script>
+!function(f,b,e,v,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+var go=function(){var t=b.createElement(e);t.async=!0;t.src=v;b.head.appendChild(t)};
+b.readyState==='complete'?go():f.addEventListener('load',go)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1442284964099300');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1442284964099300&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <style>
+  @font-face{font-family:"Fredoka";font-style:normal;font-weight:600 700;font-display:swap;src:url(fonts/fredoka.woff2) format("woff2")}
+  @font-face{font-family:"Montserrat";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/montserrat.woff2) format("woff2")}
   :root{
     --bg:#E4E9EE;
     --pink:#FF77AE;
@@ -63,8 +68,6 @@ src="https://www.facebook.com/tr?id=1442284964099300&ev=PageView&noscript=1"
   .search{width:22px;height:22px;color:var(--navy);opacity:.85}
   .badge{position:relative;width:150px;height:150px;flex:none}
   .badge img{position:absolute;inset:22px;width:106px;height:106px;border-radius:50%;object-fit:cover;object-position:60% 35%;border:4px solid #fff;box-shadow:0 6px 18px rgba(23,71,158,.18)}
-  .badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 30s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
   .menu{display:flex;gap:30px;list-style:none;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
   .menu a{color:var(--navy);font-weight:500;transition:color .2s}
   .menu a:hover,.menu a.active{color:var(--pink);font-weight:700}
@@ -235,7 +238,10 @@ src="https://www.facebook.com/tr?id=1442284964099300&ev=PageView&noscript=1"
 
 <!-- ================= HERO ================= -->
 <header class="hero" id="inicio">
-  <div class="hero-photo"><img src="logo-enxoval.png" alt="Mamãe grávida no quarto do bebê"></div>
+  <div class="hero-photo"><img src="img/hero-1254.webp"
+    srcset="img/hero-480.webp 480w, img/hero-800.webp 800w, img/hero-1254.webp 1254w"
+    sizes="(max-width:780px) 100vw, 62vw" width="1254" height="1254"
+    fetchpriority="high" decoding="async" alt="Mamãe grávida no quarto do bebê"></div>
 
   <!-- pink wave -->
   <div class="hero-wave">
@@ -395,7 +401,7 @@ src="https://www.facebook.com/tr?id=1442284964099300&ev=PageView&noscript=1"
     <div class="cta-box reveal">
       <svg class="deco hide-m" style="right:40px;top:30px;width:40px;height:36px"><use href="#heart"/></svg>
       <svg class="deco hide-m" style="right:100px;top:50px;width:22px;height:20px"><use href="#heart"/></svg>
-      <div class="pic"><img src="logo-enxoval.png" alt="Enxoval da Mãe"></div>
+      <div class="pic"><img src="img/hero-480.webp" width="480" height="480" loading="lazy" decoding="async" alt="Enxoval da Mãe"></div>
       <div>
         <h2>Vem economizar com a gente, mamãe!</h2>
         <p>Entre agora no grupo Enxoval da Mãe e siga no Instagram para não perder nenhuma oferta.</p>
@@ -442,10 +448,17 @@ src="https://www.facebook.com/tr?id=1442284964099300&ev=PageView&noscript=1"
   // menu ativo conforme rolagem
   const links = document.querySelectorAll(".menu a");
   const secs = [...links].map(l => document.querySelector(l.getAttribute("href")));
+  // (no máximo 1 cálculo por quadro, para a rolagem ficar lisa)
+  let ticking = false;
   addEventListener("scroll", () => {
-    let i = 0;
-    secs.forEach((s, k) => { if (s.getBoundingClientRect().top < innerHeight * .4) i = k; });
-    links.forEach((l, k) => l.classList.toggle("active", k === i));
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      let i = 0;
+      secs.forEach((s, k) => { if (s.getBoundingClientRect().top < innerHeight * .4) i = k; });
+      links.forEach((l, k) => l.classList.toggle("active", k === i));
+      ticking = false;
+    });
   }, { passive: true });
 </script>
 </body>
