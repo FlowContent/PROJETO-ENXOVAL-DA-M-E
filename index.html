@@ -430,5 +430,37 @@ src="https://www.facebook.com/tr?id=1442284964099300&ev=PageView&noscript=1"
     });
   }, { passive: true });
 </script>
+<!-- Lead: pixel + API de Conversões (mesmo event_id; a Meta descarta a duplicata) -->
+<script>
+(function () {
+  var CAPI_URL = '/api/meta-lead';
+  function cookie(n) {
+    var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : undefined;
+  }
+  function fbc() {
+    var c = cookie('_fbc'); if (c) return c;
+    var id = new URLSearchParams(location.search).get('fbclid');
+    return id ? 'fb.1.' + Date.now() + '.' + id : undefined;
+  }
+  function newId() {
+    return (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+      : 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+  }
+  var last = 0;
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="chat.whatsapp.com"]');
+    if (!a || Date.now() - last < 1500) return;
+    last = Date.now();
+    var eventId = newId();
+    if (window.fbq) fbq('track', 'Lead', { content_name: 'Entrar no grupo' }, { eventID: eventId });
+    var body = JSON.stringify({ event_id: eventId, url: location.href, fbp: cookie('_fbp'), fbc: fbc(), content_name: 'Entrar no grupo' });
+    var blob = new Blob([body], { type: 'text/plain' });
+    if (!(navigator.sendBeacon && navigator.sendBeacon(CAPI_URL, blob))) {
+      fetch(CAPI_URL, { method: 'POST', body: body, keepalive: true, headers: { 'Content-Type': 'text/plain' } }).catch(function () {});
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>
